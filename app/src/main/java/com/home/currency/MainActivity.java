@@ -34,16 +34,16 @@ public class MainActivity extends AppCompatActivity {
         String ntd = mNtd.getText().toString().trim();
         if (ntd.isEmpty()) {
             new AlertDialog.Builder(this)
-                    .setTitle("Problem")
-                    .setMessage("Please enter your NTD amount")
-                    .setPositiveButton("OK", null)
+                    .setTitle(R.string.problem)
+                    .setMessage(R.string.please_enter_ntd)
+                    .setPositiveButton(R.string.ok, null)
                     .show();
         } else {
             double val = Integer.parseInt(ntd) / 30.9;
             new AlertDialog.Builder(this)
-                    .setTitle("Result")
-                    .setMessage("USD is " + new BigDecimal(val).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue())
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setTitle(R.string.result)
+                    .setMessage(getString(R.string.usd_is) + new BigDecimal(val).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue())
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             mNtd.setText("");
